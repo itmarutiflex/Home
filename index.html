@@ -1,1 +1,188 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechTube</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins',sans-serif;
+    box-sizing: border-box;
+}
+.flex-div{
+    display: flex;
+    align-items: center;
+}
+nav{
+    justify-content: space-between;
+    padding: 10px 2%;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.nav-left .menu-icon{
+    width: 22px;
+    margin-right: 25px;
+}
+.nav-left .logo{
+    width: 45%;
+}
+.nav-middle .search-box{
+    border: 1px solid black;
+    padding: 8px 10px;
+    border-radius: 20px;
+    margin-right: 15px;
+}
+.nav-middle .search-box input{
+    border: 0;
+    width: 450px;
+    outline: 0;
+    margin-left: 2px;
+    color: #373737;
+    font-size: 18px;
+}
+.nav-middle .search-box img,.nav-middle img{
+    width: 22px;
+}
+img{
+    cursor: pointer;
+}
+.nav-right img{
+    width: 25px;
+    margin-right:  15px ;
+}
+.nav-right .user-icon{
+    width: 40px;
+    margin-right: 0;
+    border-radius: 50%;
+}
+a{
+    text-decoration: none;
+    color: #5a5a5a;
+}
+/* sidebar */
+.sidebar {
+    width: 15% ;
+    height: 100vh;
+    flex-wrap: wrap;
+}
+.sidebar .shot-links a{
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+.sidebar .shot-links a img{
+    width: 25px;
+    margin-right: 10px;
+}
+.sidebar .shot-links a:first-child{
+    color: rgb(245, 93, 93);
+}
+.sidebar hr{
+    width:80% ;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+.sidebar .subscriptions a{
+    display: flex;
+    margin-top: 15px;
+    align-items: center;
+}
+.sidebar .subscriptions a img{
+    width: 25px;
+    border-radius: 50%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.sidebar .subscriptions h3{
+    font-size: 18px;
+    color: #343333;
+    margin-top: 10px;
+    margin-left: 10%;
+}
+.container .mainPage{
+    margin-top: 10px;
+    margin-right: 1%;
+    width:100%;
+}
+.container{
+    display: flex;
+}
+
+.mainPage .banner{
+    width: 100%;
+    height: 250px;
+    margin-top: 0;
+    border-radius: 8px;
+}
+
+/* set toggle */
+.smallSide .shot-links a p,
+.smallSide .subscriptions a p,
+.smallSide hr,
+.smallSide .subscriptions h3
+{
+    display: none;
+}
+.smallSide{
+    width: fit-content;
+    margin-right: 20px;
+} 
+    </style>
+    
+</head>
+<body>
+    <nav class="flex-div">
+        <div class="nav-left flex-div">
+            <img src="images/menu.png" id="menucl" class="menu-icon">
+            <img src="images/logo.png" class="logo">
+        </div>
+        <div class="nav-middle flex-div">
+            <div class="search-box flex-div">
+                <input type="text" placeholder="Search">
+                <img src="images/search.png" >
+            </div>
+            <img src="images/voice-search.png" class="mike-icon">
+        </div>
+        <div class="nav-right flex-div">
+            <img src="images/more.png" >
+            <img src="images/upload.png" >
+            <img src="images/notification.png" >
+            <img src="images/Jack.png" class="user-icon" >
+        </div>
+    </nav>
+    <div class="container">
+        <div id="sidbar" class="sidebar">
+            <div class="shot-links">
+                <a href=""><img src="images/home.png" alt=""><p>Home</p></a>
+                <a href=""><img src="images/explore.png" alt=""><p>Explore</p></a>
+                <a href=""><img src="images/subscriprion.png" alt=""><p>Subscriprion</p></a>
+                <a href=""><img src="images/library.png" alt=""><p>Library</p></a>
+                <a href=""><img src="images/history.png" alt=""><p>History</p></a>
+                <a href=""><img src="images/playlist.png" alt=""><p>Playlist</p></a>
+                <a href=""><img src="images/messages.png" alt=""><p>Messages</p></a>
+                <a href=""><img src="images/show-more.png" alt=""><p>Show More</p></a>
+            </div>
+            <hr>
+            <div class="subscriptions">
+                <h3>Subscriprion</h3>
+                <a href=""><img src="images/Jack.png" alt=""><p>Rabindra Sahoo</p></a>
+                <a href=""><img src="images/megan.png" alt=""><p>Anuradha Prusty</p></a>
+                <a href=""><img src="images/tom.png" alt=""><p>Chiranjit Sahoo</p></a>
+                <a href=""><img src="images/simon.png" alt=""><p>Rajanikanth Sahoo</p></a>
+                <a href=""><img src="images/cameron.png" alt=""><p>Manorama Sahoo</p></a>
+                <a href=""><img src="images/show-more.png" alt=""><p>Show More</p></a>
+            </div>
+        </div>
+        <div class="mainPage">
+            <img src="images/banner.png" class="banner">
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
