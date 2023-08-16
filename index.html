@@ -1,188 +1,346 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechTube</title>
-    <style>
-        *{
-    margin: 0;
-    padding: 0;
-    font-family: 'poppins',sans-serif;
-    box-sizing: border-box;
-}
-.flex-div{
-    display: flex;
-    align-items: center;
-}
-nav{
-    justify-content: space-between;
-    padding: 10px 2%;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}
-.nav-left .menu-icon{
-    width: 22px;
-    margin-right: 25px;
-}
-.nav-left .logo{
-    width: 45%;
-}
-.nav-middle .search-box{
-    border: 1px solid black;
-    padding: 8px 10px;
-    border-radius: 20px;
-    margin-right: 15px;
-}
-.nav-middle .search-box input{
-    border: 0;
-    width: 450px;
-    outline: 0;
-    margin-left: 2px;
-    color: #373737;
-    font-size: 18px;
-}
-.nav-middle .search-box img,.nav-middle img{
-    width: 22px;
-}
-img{
-    cursor: pointer;
-}
-.nav-right img{
-    width: 25px;
-    margin-right:  15px ;
-}
-.nav-right .user-icon{
-    width: 40px;
-    margin-right: 0;
-    border-radius: 50%;
-}
-a{
-    text-decoration: none;
-    color: #5a5a5a;
-}
-/* sidebar */
-.sidebar {
-    width: 15% ;
-    height: 100vh;
-    flex-wrap: wrap;
-}
-.sidebar .shot-links a{
-    display: flex;
-    align-items: center;
-    margin-top: 15px;
-}
-.sidebar .shot-links a img{
-    width: 25px;
-    margin-right: 10px;
-}
-.sidebar .shot-links a:first-child{
-    color: rgb(245, 93, 93);
-}
-.sidebar hr{
-    width:80% ;
-    margin-left: 5%;
-    margin-top: 5%;
-}
-.sidebar .subscriptions a{
-    display: flex;
-    margin-top: 15px;
-    align-items: center;
-}
-.sidebar .subscriptions a img{
-    width: 25px;
-    border-radius: 50%;
-    margin-left: 5%;
-    margin-right: 5%;
-}
-.sidebar .subscriptions h3{
-    font-size: 18px;
-    color: #343333;
-    margin-top: 10px;
-    margin-left: 10%;
-}
-.container .mainPage{
-    margin-top: 10px;
-    margin-right: 1%;
-    width:100%;
-}
-.container{
-    display: flex;
+  <title>Menu Bar Example</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <style>
+    /* CSS styles for menu bar */
+    th,
+    td {
+      border: solid black 1px;
+      padding: 1px;
+    }
+    table {
+      border-collapse: collapse;
+    }
+    .inputsort {
+      width: 100px
+    }
+    .Table_Menu {
+      position: fixed;
+      position: -webkit-sticky;
+      position: sticky;
+      top: 9%;
+      z-index: 1;
+      background-color: red;
+      color: white;
+    }
+    samp {
+      color: red;
+      font-size: 20px;
+    }
+
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-.mainPage .banner{
-    width: 100%;
-    height: 250px;
-    margin-top: 0;
-    border-radius: 8px;
+/* Modal Content */
+.modal-content {
+  color: #ffff;  
+  background-color: #63ce35;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
 }
 
-/* set toggle */
-.smallSide .shot-links a p,
-.smallSide .subscriptions a p,
-.smallSide hr,
-.smallSide .subscriptions h3
-{
-    display: none;
+/* The Close Button */
+.close {
+  color: #060606;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 }
-.smallSide{
-    width: fit-content;
-    margin-right: 20px;
-} 
-    </style>
-    
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+  </style>
 </head>
-<body>
-    <nav class="flex-div">
-        <div class="nav-left flex-div">
-            <img src="images/menu.png" id="menucl" class="menu-icon">
-            <img src="images/logo.png" class="logo">
-        </div>
-        <div class="nav-middle flex-div">
-            <div class="search-box flex-div">
-                <input type="text" placeholder="Search">
-                <img src="images/search.png" >
-            </div>
-            <img src="images/voice-search.png" class="mike-icon">
-        </div>
-        <div class="nav-right flex-div">
-            <img src="images/more.png" >
-            <img src="images/upload.png" >
-            <img src="images/notification.png" >
-            <img src="images/Jack.png" class="user-icon" >
-        </div>
-    </nav>
-    <div class="container">
-        <div id="sidbar" class="sidebar">
-            <div class="shot-links">
-                <a href=""><img src="images/home.png" alt=""><p>Home</p></a>
-                <a href=""><img src="images/explore.png" alt=""><p>Explore</p></a>
-                <a href=""><img src="images/subscriprion.png" alt=""><p>Subscriprion</p></a>
-                <a href=""><img src="images/library.png" alt=""><p>Library</p></a>
-                <a href=""><img src="images/history.png" alt=""><p>History</p></a>
-                <a href=""><img src="images/playlist.png" alt=""><p>Playlist</p></a>
-                <a href=""><img src="images/messages.png" alt=""><p>Messages</p></a>
-                <a href=""><img src="images/show-more.png" alt=""><p>Show More</p></a>
-            </div>
-            <hr>
-            <div class="subscriptions">
-                <h3>Subscriprion</h3>
-                <a href=""><img src="images/Jack.png" alt=""><p>Rabindra Sahoo</p></a>
-                <a href=""><img src="images/megan.png" alt=""><p>Anuradha Prusty</p></a>
-                <a href=""><img src="images/tom.png" alt=""><p>Chiranjit Sahoo</p></a>
-                <a href=""><img src="images/simon.png" alt=""><p>Rajanikanth Sahoo</p></a>
-                <a href=""><img src="images/cameron.png" alt=""><p>Manorama Sahoo</p></a>
-                <a href=""><img src="images/show-more.png" alt=""><p>Show More</p></a>
-            </div>
-        </div>
-        <div class="mainPage">
-            <img src="images/banner.png" class="banner">
-        </div>
+
+<body onload="initialize_map();">
+  <!-- This is  Button Codes -->
+  <div class="fixed-action-btn">
+    <a class="btn-floating btn-large blue">
+      <i class="large material-icons">menu</i>
+    </a>
+    <ul>
+      <li><a id="new_Visit_btn" class="btn-floating red"><i class="material-icons">add</i></a></li>
+      <li><a id="planned_btn" class="btn-floating green darken-1"><i class="material-icons">update</i></a></li>
+    </ul>
+  </div>
+
+  <!--  Button Completed Codes Here -->
+  <p id="submissiontype" hidden> </p>
+
+  <div hidden id="New_Visit_content">
+
+    <pre style="color:red; font-size: 22px;">  Daily Reporting Submission</pre>
+    <!-- Tracking ID Declaration -->
+    <p id="trackingid" hidden ></p>
+    <!-- Declare Closed -->
+    <!--------------------Date of Contact----------------------->
+    <div class="input-field col s12" hidden>
+      <i class="material-icons prefix">calendar_month</i>
+      <input id="Contact_Date" type="date" class="validate"   required>
+      <label for="Contact_Date">Date of Contact</label>
     </div>
-    <script src="script.js"></script>
+    <!-------------------------------------------------------->    
+    <!--------------------Party Name----------------------->
+    <div class="input-field col s12">
+      <i class="material-icons prefix">account_circle</i>
+      <input id="Party_name" type="text" class="validate" list="PartyNameList" required>
+      <label for="Party_name">Party Name <samp>* </samp></label>
+      <datalist id="PartyNameList">
+        <?!= partylist_data ?>
+      </datalist>
+    </div>
+    <!-------------------------------------------------------->
+    <!--------------------Mobile Number----------------------->
+    <div id="mobilenumhid" class="input-field col s12">
+      <i class="material-icons prefix">phone_android</i>
+      <input id="Mobile_Number" type="number" min="5999999999"  max="9999999999" class="validate" required >
+      <span class="helper-text" data-error="Wrong Mobile Number You have entered" data-success="Mobile Number Accepted"></span>
+      <label for="Mobile_Number">Mobile Number<samp>* </samp></label>
+    </div>
+    <!-------------------------------------------------------->
+    <!--------------------Client Category----------------------->
+    <div id="selectclientcat" class="input-field col s12">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">storage</i>
+        <select id="client_cat_val" required  multiple>
+              <?!= Client_Category_data ?>
+            </select>
+        <label for="client_cat_val">Client Category<samp>* </samp></label>
+      </div>
+    </div>
+    <!---------------------------------------------------------->
+    <!--------------------Sales Person----------------------->
+    <div id="spcat" class="input-field col s12">
+      <i class="material-icons prefix">person</i>
+      <select id="sales_executive" required>
+            <option value="" >Choose Your Name</option>
+              <optgroup label="Sales Executive">
+              <?!= Sales_Person_data ?>
+              </optgroup>
+             <optgroup label="Sales Co-ordinator">
+              <?!= Sales_Co_ordinator_data ?>
+             </optgroup>
+            </select>
+      <label for="sales_executive">Sales Person<samp>* </samp></label>
+    </div>
+    <!---------------------------------------------------------->
+    <!--------------------Purpose----------------------->
+    <div class="input-field col s12">
+      <i class="material-icons prefix">ads_click</i>
+      <select id="purpose" required>
+              <?!=Purpose_data  ?>
+            </select>
+      <label for="purpose">Purpose<samp>* </samp></label>
+    </div>
+    <!---------------------------------------------------------->
+    <!--------------------Contact Type----------------------->
+    <div class="input-field col s12">
+      <i class="material-icons prefix">rv_hookup</i>
+      <select id="contcat_type" required>
+            <option>Visit</option>
+            <option>Call</option>
+            </select>
+      <label for="contcat_type">Contact Type<samp>* </samp></label>
+    </div>
+    <!---------------------------------------------------------->
+    <!--------------------Conversation----------------------->
+    <div class="input-field col s12">
+      <i class="material-icons prefix">interpreter_mode</i>
+      <input id="Conversation" type="text"  class="validate" required >
+      <label for="Conversation">Conversation<samp>* </samp></label>
+    </div>
+    <!---------------------------------------------------------->
+    <!--------------------Next Follow----------------------->
+    <div class="input-field col s12">
+      <i class="material-icons prefix">event_note</i>
+      <input id="NextDate" type="date"  class="validate" required >
+      <label for="NextDate">Next Followup Date</label>
+    </div>
+    <!---------------------------------------------------------->
+    
+    <a id="newvisitbtn_submit" class="waves-effect waves-light btn"><i class="material-icons left">add_circle</i>Submit</a>
+  <!-- Modal content -->
+    <div id="myModal" class="modal">
+      <div id="myModal2"  class="modal-content">
+       <span class="close" id="close">&times;</span>
+       <p id="status"></p>
+       </div>
+     </div>
+  <!-- Modal Close -->
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+  </div>
+
+  <div id="planned_content" hidden>
+
+    <?!= Plannedlist ?>
+
+   <br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+  </div>
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <!-- This is Script Code to Define the Load Format -->
+
+  <script>
+        function initialize_map(){
+      document.getElementById('New_Visit_content').removeAttribute('hidden')
+      document.getElementById('submissiontype').innerHTML= 'New'
+      document.getElementById("trackingid").value = ''
+    }
+   
+    document.getElementById('new_Visit_btn').addEventListener('click',function(){
+          document.getElementById('New_Visit_content').removeAttribute('hidden');
+          document.getElementById('planned_content').setAttribute('hidden',true)
+      document.getElementById('submissiontype').innerHTML= 'New'
+      document.getElementById('Party_name').value=''
+      document.getElementById('Party_name').removeAttribute('disabled')
+
+      document.getElementById('Mobile_Number').value=''
+      document.getElementById('Mobile_Number').removeAttribute('disabled')
+
+      document.getElementById('Conversation').value='';
+      document.getElementById('Conversation').removeAttribute('disabled');
+
+      document.getElementById('sales_executive').removeAttribute('disabled');
+      document.getElementById('client_cat_val').removeAttribute('disabled');
+      document.getElementById("trackingid").value = ''
+
+
+ // M.updateTextFields();
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems);
+ M.updateTextFields();
+ 
+ 
+
+
+        })
+   document.getElementById('planned_btn').addEventListener('click',function(){
+          document.getElementById('New_Visit_content').setAttribute('hidden',true)
+          document.getElementById('planned_content').removeAttribute('hidden');
+      document.getElementById('submissiontype').innerHTML= 'Update'
+        })
+document.getElementById('Party_name').addEventListener('change',getPartyData)
+function getPartyData(){
+  var party =  document.getElementById('Party_name').value;
+  google.script.run.withSuccessHandler(Updatevalue).getdata(party)
+}
+function Updatevalue(data){
+document.getElementById('Mobile_Number').value = data[1];
+M.updateTextFields();
+var clcat = document.getElementById("client_cat_val");
+clcat.value = data[2];
+M.FormSelect.init(clcat)
+var SpCat = document.getElementById("sales_executive");
+SpCat.value = data[3];
+M.FormSelect.init(SpCat)
+
+}
+// M.updateTextFields();
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems);
+  });
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.fixed-action-btn');
+    var instances = M.FloatingActionButton.init(elems, {
+      direction: 'top'
+    });
+  });
+  </script>
+
+  <!-- This is the Script to Submit the new visit -->
+  <script>
+    document.getElementById('newvisitbtn_submit').addEventListener('click',Submit_new_Visit)
+function Submit_new_Visit (){
+  var tracking_id = document.getElementById("trackingid").value ;
+  var sourcetosubmit = document.getElementById('submissiontype').innerHTML; 
+  var PartyName = document.getElementById('Party_name').value;
+  var MobileNumber = + document.getElementById('Mobile_Number').value;
+  var Clientcatval =  Array.prototype.slice.call(document.querySelectorAll('#client_cat_val option:checked'),0).map(function(v,i,a) { 
+    return v.value; 
+}).join('/');
+  var Salesexecutive = document.getElementById('sales_executive').value;
+  var Purpose = document.getElementById('purpose').value;
+  var Contcattype = document.getElementById('contcat_type').value;
+  var Conversation = document.getElementById('Conversation').value;
+  var NextDate = document.getElementById('NextDate').value;
+  var contactDate = document.getElementById('Contact_Date').value;
+  var sts = document.getElementById('status');
+  var modal = document.getElementById("myModal");
+  var modal2 = document.getElementById('myModal2');
+
+  if(PartyName !== "" && MobileNumber >= 5999999999 && MobileNumber <= 9999999999 && Conversation !== "" && Salesexecutive !==""){
+      google.script.run.NewvisitSumbitGoogle(PartyName,MobileNumber,Clientcatval,Salesexecutive,Purpose,Contcattype,Conversation,NextDate,sourcetosubmit,tracking_id,contactDate)
+      document.getElementById('Party_name').value='';
+      document.getElementById('Mobile_Number').value='';
+      document.getElementById('Conversation').value='';
+      document.getElementById('NextDate').value='';
+      M.updateTextFields()
+      sts.innerHTML = 'Submitted Successfully'
+      modal2.style.backgroundColor  = "green";
+      modal.style.display = "block";
+      document.getElementById('Contact_Date').value='';
+  }else{
+      sts.innerHTML = 'Please Fill Proper Data'
+      modal2.style.backgroundColor  = "red";   
+      modal.style.display = "block"; 
+  }
+}
+  </script>
+
+  <?!= Planned_functioninit ?>
+  <script>
+    document.getElementById('close').addEventListener("click",closemodal)
+       function closemodal() {
+var modal = document.getElementById("myModal");
+          modal.style.display = "none";
+        }
+
+    window.onclick = function(event) {
+var modal = document.getElementById("myModal");
+      if (event.target == modal) {
+        modal.style.display = "none";
+     }
+    }
+    </script>
 </body>
+
 </html>
